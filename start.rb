@@ -139,7 +139,7 @@ base.each do |x|
 		end
 		rows << row
 		
-
+		i += 1
 		# i++
 	else
 		next
@@ -159,6 +159,7 @@ puts 'Output file: ' + "output-#{filename.split('.')[0]}-#{t.to_i}.csv"
 puts "Instructor: #{inst_name}"
 puts "Date: #{class_date}"
 puts "Course: #{section}"
+puts "Number of instances: #{i}"
 puts '---'
 
 
