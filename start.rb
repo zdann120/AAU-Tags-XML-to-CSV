@@ -170,6 +170,7 @@ CSV.open("./output/output-#{filename.split('.')[0]}-#{t.to_i}.csv", "w") do |res
 end
 
 # prints some information to the screen if the script completes successfully.
+# if it is not successful, it will error out before it gets to this point.
 puts '--- Success ---'
 puts 'Input file: ' + "#{filename}"
 puts 'Output file: ' + "output-#{filename.split('.')[0]}-#{t.to_i}.csv"
