@@ -5,7 +5,7 @@
 require 'xmlsimple'
 require 'csv'
 
-puts "> Enter file name: "
+puts "> Enter file name: (e.g. Example.xml)"
 filename = gets.chomp
 
 puts "> Enter instructor's last name: "
