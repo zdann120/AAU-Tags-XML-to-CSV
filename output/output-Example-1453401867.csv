@@ -1,0 +1,4 @@
+instructor,class_date,course,type,90-100,80-19,70-79,60-69,50-59,40-49,30-39,20-29,10-19,0-9,GraphUnavailable,PollNC,Estimate,Live,1o,2o,3o,4o,5o,InfOpt,None,All,IDK,Depends,Repeat 1,Repeat 2,Repeat 3,Repeat 4,Repeat 5,Cluster,Survey,Judge,Judge-Neutral,WalkAround,Solo,Group,Spont,Planned,Disc-During,Disc-After,Vol-Student,Vol-Instructor,OpenEnded
+Example,10/10/2016,CEM141,Clicker,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,0,1,0,0,0
+Example,10/10/2016,CEM141,Clicker,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,1,1,1,0,0
+Example,10/10/2016,CEM141,Clicker,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0
