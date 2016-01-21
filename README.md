@@ -10,23 +10,14 @@ To use this script:
 ```
 macbook-pro$ ruby start.rb
 
-> Enter file name: 
-Example.xml
+...
 
-> Enter instructor's last name: 
-Schwienhorst
-
-> Enter class date: (MM/DD/YYYY) 
-10
-
-> Enter course section: (CEM141)
-1
 --- Success ---
 Input file: Example.xml
 Output file: output-Example-1453407588.csv
 Instructor: Schwienhorst
-Date: 10
-Course: 1
+Date: 10/20/2014
+Course: PHY183
 Number of instances: 3
 ----- end -----
 ```
