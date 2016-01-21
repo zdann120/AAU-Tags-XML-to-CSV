@@ -1,3 +1,7 @@
+# CLICKER QUESTION / TASK TAG EXTRACTOR
+# ZACH NUSBAUM (nusbaumz@msu.edu)
+# 2016 January 21
+
 require 'xmlsimple'
 require 'csv'
 
