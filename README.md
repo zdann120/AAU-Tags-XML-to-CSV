@@ -1,5 +1,5 @@
 # AAU-Tags-XML-to-CSV
-Takes a timeline and makes a CSV file listing all CQ/Task instances and their codes.
+#### This script parses an XML Edit List from StudioCode.  It filters out any instances which are not clickers or tasks, then sorts through the clicker/task tags and creates a csv file.
 
 To use this script:
 - Place any tagged XML Edit Lists from StudioCode that you need into this folder.
