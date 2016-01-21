@@ -139,11 +139,19 @@ base.each do |x|
 	end
 	# p rows
 end
-
-CSV.open("./output/output-#{filename.split('.')[0]}-#{Time.now.to_i}.csv", "w") do |result|
+t = Time.now
+CSV.open("./output/output-#{filename.split('.')[0]}-#{t.to_i}.csv", "w") do |result|
 	rows.each do |row|
 		result << row
 	end
 end
+
+puts '---'
+puts 'Input file: ' + "#{filename}"
+puts 'Output file: ' + "output-#{filename.split('.')[0]}-#{t.to_i}.csv"
+puts "Instructor: #{inst_name}"
+puts "Date: #{class_date}"
+puts "Course: #{section}"
+
 
 #  p rows
