@@ -7,10 +7,13 @@ require 'csv'
 
 puts "Enter file name: "
 filename = gets.chomp
+
 puts "Enter instructor's last name: "
 inst_name = gets.chomp
+
 puts "Enter class date: (MM/DD/YYYY) "
 class_date = gets.chomp
+
 puts "Enter course section: (CEM141)"
 section = gets.chomp
 
@@ -156,6 +159,7 @@ puts 'Output file: ' + "output-#{filename.split('.')[0]}-#{t.to_i}.csv"
 puts "Instructor: #{inst_name}"
 puts "Date: #{class_date}"
 puts "Course: #{section}"
+puts '---'
 
 
 #  p rows
