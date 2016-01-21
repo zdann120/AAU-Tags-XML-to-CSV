@@ -80,12 +80,18 @@ headers = [
 # This will store every row, including the headers, of the final excel file.
 rows = [headers]
 
+# Loop through every instance in the XML file.
 base.each do |x|
+	# If the instance is a clicker question or a task, then read the tags.  If not, do nothing and continue on.
 	if (x['code'][0].start_with?('Clicker') || x['code'][0].start_with?('Task')) then
+		# Set all tags to zero by default.
 		row = ["INSTRUCTOR", "DATE", "COURSE", "TYPE", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+		# 'x' is the current instance.  Set 'tags' to an array of the tags that are present.
 		tags = x['label']
-		tags_array = []
+		#  tags_array = []
 
+		# Loop over each tag.  If it is one of the 43 tags below, it will switch that tag to '1'.
+		# If no tags are present, the tags will all have a value of 0.
 		tags.each do |tag|
 			row[0] = inst_name
 			row[1] = class_date
@@ -135,32 +141,40 @@ base.each do |x|
 			row[45] = 1 if tag['text'][0] == "Vol-Instructor"
 			row[46] = 1 if tag['text'][0] == "Ans-During"
 			row[47] = 1 if tag['text'][0] == "OpenEnded"
-			# p row
+
 		end
+
+		# push the current instance's row in the 'rows' array.
 		rows << row
 		
+		# increase the instance counter by 1
 		i += 1
-		# i++
+
 	else
+		# skip to the next instance if it is not a clicker question or a tag
 		next
 	end
-	# p rows
+
 end
+
+# save the current timestamp
 t = Time.now
+
+# create the output file, open it in write mode
 CSV.open("./output/output-#{filename.split('.')[0]}-#{t.to_i}.csv", "w") do |result|
+	# loop over each row that is now in the rows array
 	rows.each do |row|
+		# push each row into the csv result file
 		result << row
 	end
 end
 
-puts '---'
+# prints some information to the screen if the script completes successfully.
+puts '--- Success ---'
 puts 'Input file: ' + "#{filename}"
 puts 'Output file: ' + "output-#{filename.split('.')[0]}-#{t.to_i}.csv"
 puts "Instructor: #{inst_name}"
 puts "Date: #{class_date}"
 puts "Course: #{section}"
 puts "Number of instances: #{i}"
-puts '---'
-
-
-#  p rows
+puts '----- end -----'
