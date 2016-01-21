@@ -81,12 +81,13 @@ headers = [
 rows = [headers]
 
 # Loop through every instance in the XML file.
+# 'x' will refer to the current instance
 base.each do |x|
 	# If the instance is a clicker question or a task, then read the tags.  If not, do nothing and continue on.
 	if (x['code'][0].start_with?('Clicker') || x['code'][0].start_with?('Task')) then
 		# Set all tags to zero by default.
 		row = ["INSTRUCTOR", "DATE", "COURSE", "TYPE", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		# 'x' is the current instance.  Set 'tags' to an array of the tags that are present.
+		# Set 'tags' to an array of the tags that are present.
 		tags = x['label']
 		#  tags_array = []
 
