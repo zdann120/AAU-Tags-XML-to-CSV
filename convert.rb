@@ -1,4 +1,6 @@
 require 'xmlsimple'
+require 'csv'
+
 # Load the XML file and parse it into an object.
 config = XmlSimple.xml_in('Schwienhorst 09-12-13.xml', {'KeyAttr' => 'name'})
 
@@ -125,4 +127,11 @@ base.each do |x|
 	end
 	# p rows
 end
-p rows
+
+CSV.open('output.csv', "w") do |result|
+	rows.each do |row|
+		result << row
+	end
+end
+
+#  p rows
