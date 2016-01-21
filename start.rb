@@ -5,16 +5,16 @@
 require 'xmlsimple'
 require 'csv'
 
-puts "Enter file name: "
+puts "> Enter file name: "
 filename = gets.chomp
 
-puts "Enter instructor's last name: "
+puts "> Enter instructor's last name: "
 inst_name = gets.chomp
 
-puts "Enter class date: (MM/DD/YYYY) "
+puts "> Enter class date: (MM/DD/YYYY) "
 class_date = gets.chomp
 
-puts "Enter course section: (CEM141)"
+puts "> Enter course section: (CEM141)"
 section = gets.chomp
 
 # Load the XML file and parse it into an object.
