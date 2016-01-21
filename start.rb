@@ -1,8 +1,17 @@
 require 'xmlsimple'
 require 'csv'
 
+puts "Enter file name: "
+filename = gets.chomp
+puts "Enter instructor's last name: "
+inst_name = gets.chomp
+puts "Enter class date: (MM/DD/YYYY) "
+class_date = gets.chomp
+puts "Enter course section: (CEM141)"
+section = gets.chomp
+
 # Load the XML file and parse it into an object.
-config = XmlSimple.xml_in('Schwienhorst 09-12-13.xml', {'KeyAttr' => 'name'})
+config = XmlSimple.xml_in("#{filename}", {'KeyAttr' => 'name'})
 
 # 'base' is a variable that has an array of all instances with tags.
 base = config['ALL_INSTANCES'][0]['instance']
@@ -71,7 +80,10 @@ base.each do |x|
 		tags_array = []
 
 		tags.each do |tag|
-			row[3] = x['code'][0] + "#{x['ID']}"
+			row[0] = inst_name
+			row[1] = class_date
+			row[2] = section
+			row[3] = x['code'][0].split(' ')[0]
 			row[4] = 1 if tag['text'][0] == "90-100"
 			row[5] = 1 if tag['text'][0] == "80-89"
 			row[6] = 1 if tag['text'][0] == "70-79"
@@ -128,7 +140,7 @@ base.each do |x|
 	# p rows
 end
 
-CSV.open('output.csv', "w") do |result|
+CSV.open("./output/output-#{filename.split('.')[0]}-#{Time.now.to_i}.csv", "w") do |result|
 	rows.each do |row|
 		result << row
 	end
