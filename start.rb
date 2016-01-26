@@ -1,9 +1,11 @@
 # CLICKER QUESTION / TASK TAG EXTRACTOR
 # ZACH NUSBAUM (nusbaumz@msu.edu)
-# 2016 January 21
+# Created: 2016 January 21
+# Updated: 2016 January 26 (Now tells you when there is an instance with no tags.)
 
 require 'xmlsimple'
 require 'csv'
+# require 'pry'
 
 puts "> Enter file name: (e.g. Example.xml)"
 filename = gets.chomp
@@ -79,16 +81,20 @@ headers = [
 
 # This will store every row, including the headers, of the final excel file.
 rows = [headers]
-
+# binding.pry
 # Loop through every instance in the XML file.
-# 'x' will refer to the current instance
 base.each do |x|
 	# If the instance is a clicker question or a task, then read the tags.  If not, do nothing and continue on.
 	if (x['code'][0].start_with?('Clicker') || x['code'][0].start_with?('Task')) then
 		# Set all tags to zero by default.
 		row = ["INSTRUCTOR", "DATE", "COURSE", "TYPE", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-		# Set 'tags' to an array of the tags that are present.
+		# 'x' is the current instance.  Set 'tags' to an array of the tags that are present.
 		tags = x['label']
+		puts "\nERROR!" if tags.nil?
+		puts "There was a problem with instance #{x['ID']} which is a #{x['code'][0].split(' ')[0]}.\n" if tags.nil?
+		tags ||= []
+
+		# binding.pry
 		#  tags_array = []
 
 		# Loop over each tag.  If it is one of the 43 tags below, it will switch that tag to '1'.
@@ -171,7 +177,6 @@ CSV.open("./output/output-#{filename.split('.')[0]}-#{t.to_i}.csv", "w") do |res
 end
 
 # prints some information to the screen if the script completes successfully.
-# if it is not successful, it will error out before it gets to this point.
 puts '--- Success ---'
 puts 'Input file: ' + "#{filename}"
 puts 'Output file: ' + "output-#{filename.split('.')[0]}-#{t.to_i}.csv"
