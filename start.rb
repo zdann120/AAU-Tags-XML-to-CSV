@@ -87,11 +87,11 @@ base.each do |x|
 	# If the instance is a clicker question or a task, then read the tags.  If not, do nothing and continue on.
 	if (x['code'][0].start_with?('Clicker') || x['code'][0].start_with?('Task')) then
 		# Set all tags to zero by default.
-		row = ["INSTRUCTOR", "DATE", "COURSE", "TYPE", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+		row = ["INSTRUCTOR", "DATE", "COURSE", "Instance #{x['ID']}", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 		# 'x' is the current instance.  Set 'tags' to an array of the tags that are present.
 		tags = x['label']
-		puts "\nERROR!" if tags.nil?
-		puts "There was a problem with instance #{x['ID']} which is a #{x['code'][0].split(' ')[0]}.\n" if tags.nil?
+		puts "** ** ** ** **\nERROR!" if tags.nil?
+		puts "There was a problem with instance #{x['ID']} which is a #{x['code'][0].split(' ')[0]}.\n\n** ** ** ** **" if tags.nil?
 		tags ||= []
 
 		# binding.pry
